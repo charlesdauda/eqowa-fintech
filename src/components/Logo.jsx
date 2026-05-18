@@ -1,4 +1,5 @@
 const Logo = ({ src, size = 88, glow = true, alt = 'Eqowa Fintech' }) => (
+  //Logo
   <img
     src={src}
     alt={alt}

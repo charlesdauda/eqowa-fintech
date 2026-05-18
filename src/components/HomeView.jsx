@@ -1,6 +1,6 @@
-import CircuitField from './circuitfield';
-import Logo from './logo';
-import { LinkIcon, KeyIcon } from './icons';
+import CircuitField from './CircuitField';
+import Logo from './Logo';
+import { LinkIcon, KeyIcon } from './Icons';
 
 const StatusDot = ({ pulse = false }) => (
   <span className={`h-1.5 w-1.5 rounded-full bg-[#6fa572] ${pulse ? 'animate-pulse' : ''}`} />

@@ -1,7 +1,7 @@
 import { useEffect, useState, useId } from 'react';
-import CircuitField from './circuitfield';
-import Logo from './logo';
-import { LogoutIcon, LockIcon } from './icons';
+import CircuitField from './CircuitField';
+import Logo from './Logo';
+import { LogoutIcon, LockIcon } from './Icons';
 
 const CYAN = '#4dd4d4';
 const SOFT = '#8a9da0';

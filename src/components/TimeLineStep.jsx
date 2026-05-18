@@ -1,4 +1,4 @@
-import { CheckIcon } from './icons';
+import { CheckIcon } from './Icons';
 
 const STATE_STYLES = {
   done:    { dot: 'bg-[#6fa572]', ring: 'ring-[#6fa572]/30', title: 'text-[#6fa572]', sub: 'text-[#bfb59c]' },

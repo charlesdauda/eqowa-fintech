@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import HomeView from './components/homeview';
-import DashboardView from './components/dashboardview';
-import CommandCenterView from './components/commandcenterview';
+import DashboardView from './components/DashboardView';
+import CommandCenterView from './components/CommandCenterView';
 
 import logo from './logo.svg';
 

@@ -1,4 +1,5 @@
 const baseStroke = {
+  //stroke
   fill: 'none',
   stroke: 'currentColor',
   strokeLinecap: 'round',
