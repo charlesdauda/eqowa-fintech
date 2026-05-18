@@ -18,7 +18,7 @@ const EDGES = [
 ];
 
 const CircuitField = () => {
-  // useId prevents SVG def collisions if mounted in multiple places.
+  
   const id = useId();
   const vignetteId = `vignette-${id}`;
 

@@ -55,3 +55,10 @@ export const LogoutIcon = ({ className = '' }) => (
     <line x1="21" y1="12" x2="9" y2="12" />
   </svg>
 );
+
+export const LockIcon = ({ className = '' }) => (
+  <svg className={className} width="12" height="12" viewBox="0 0 24 24" strokeWidth="2" {...baseStroke}>
+    <rect x="3" y="11" width="18" height="11" rx="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>
+);

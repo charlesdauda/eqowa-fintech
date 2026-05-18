@@ -6,7 +6,7 @@ const StatusDot = ({ pulse = false }) => (
   <span className={`h-1.5 w-1.5 rounded-full bg-[#6fa572] ${pulse ? 'animate-pulse' : ''}`} />
 );
 
-const HomeView = ({ logo, onLogin, mounted }) => (
+const HomeView = ({ logo, onLogin, onInquire, mounted }) => (
   <div
     className={`relative w-full min-h-screen flex flex-col transition-all duration-700
       ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
@@ -61,8 +61,11 @@ const HomeView = ({ logo, onLogin, mounted }) => (
           </div>
         </button>
 
-        <button className="group px-7 py-3.5 rounded-sm border border-[#3a3833] hover:border-[#5c5850]
-                           hover:bg-[#1a1815]/40 transition-all duration-500">
+        <button
+          onClick={onInquire}
+          className="group px-7 py-3.5 rounded-sm border border-[#3a3833] hover:border-[#5c5850]
+                     hover:bg-[#1a1815]/40 transition-all duration-500"
+        >
           <div className="brand-sans flex items-center gap-2.5 text-[#bfb59c] group-hover:text-[#f5f1e8]
                           transition-colors font-medium text-[14px] tracking-[0.08em]">
             <LinkIcon />
