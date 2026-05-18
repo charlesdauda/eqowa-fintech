@@ -37,23 +37,23 @@ No additional runtime dependencies. Fonts and global styles are injected declara
 ## 📁 Project structure
 ```
 eqowa-fintech/
-├── 📄 index.html
-├── 📦 package.json
-├── ⚙️  vite.config.js
-├── 🎨 tailwind.config.js
-├── 🎨 postcss.config.js
-└── 📂 src/
-├── 🎯 main.jsx                    # React mount point
-├── 🧭 App.jsx                     # View routing + global styles
-├── 🖼️  logo.svg                    # Brand mark (swappable)
-└── 📂 components/
-├── 🏠 HomeView.jsx            # Landing page with brand introduction
-├── 🔐 DashboardView.jsx       # Client secure portal
-├── 🎛️  CommandCenterView.jsx   # Institutional operations console
-├── 🌀 CircuitField.jsx        # Animated SVG network background
-├── ✅ TimelineStep.jsx        # Settlement timeline node
-├── 🪪 Logo.jsx                # Logo wrapper with glow treatment
-└── 🎨 Icons.jsx               # Inline SVG icon set
+├──  index.html
+├──  package.json
+├──  vite.config.js
+├──  tailwind.config.js
+├──  postcss.config.js
+└──  src/
+├──  main.jsx                    # React mount point
+├──  App.jsx                     # View routing + global styles
+├──  logo.svg                    # Brand mark (swappable)
+└── components/
+├──  HomeView.jsx            # Landing page with brand introduction
+├── DashboardView.jsx       # Client secure portal
+├──  CommandCenterView.jsx   # Institutional operations console
+├── CircuitField.jsx        # Animated SVG network background
+├── TimelineStep.jsx        # Settlement timeline node
+├── Logo.jsx                # Logo wrapper with glow treatment
+└── Icons.jsx               # Inline SVG icon set
 ```
 ---
 
