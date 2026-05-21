@@ -30,7 +30,7 @@ The result is a working production-grade interface with three connected views, a
 - ⚡ **Vite** — build tooling and dev server
 - 🌐 **Vercel** — production hosting with automatic GitHub deploys
 
-No additional runtime dependencies. Fonts and global styles are injected declaratively via React's native `<style>` and `<link>` JSX support.
+No additional runtime dependencies. Fonts and global styles are injected declaratively via React's native `<style>` and `<link>` JSX support
 
 ---
 
