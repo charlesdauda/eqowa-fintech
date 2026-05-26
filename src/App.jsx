@@ -26,34 +26,31 @@ const GLOBAL_CSS = `
   .panel {
     position: relative;
     padding: 22px 26px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
-    border: 1px solid rgba(212,175,111,0.10);
-    border-radius: 4px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: #ffffff;
+    border: 1px solid #dde3ee;
+    border-radius: 6px;
+    box-shadow:
+      0 1px 2px rgba(10,30,63,0.04),
+      0 8px 30px -16px rgba(10,30,63,0.10);
   }
   .panel::before {
     content: '';
     position: absolute; inset: 0;
-    border-radius: 4px; padding: 1px;
-    background: linear-gradient(180deg, rgba(212,175,111,0.18), transparent 60%);
+    border-radius: 6px; padding: 1px;
+    background: linear-gradient(180deg, rgba(30,78,216,0.16), transparent 60%);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     pointer-events: none;
   }
-  .panel-cyan { border-color: rgba(77, 212, 212, 0.12); }
-  .panel-cyan::before {
-    background: linear-gradient(180deg, rgba(77,212,212,0.20), transparent 60%);
-  }
-
-  .grain {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  .panel-teal { border-color: rgba(8,145,178,0.20); }
+  .panel-teal::before {
+    background: linear-gradient(180deg, rgba(8,145,178,0.22), transparent 60%);
   }
 `;
 
 const App = () => {
-  const [view, setView] = useState('home'); // 'home' | 'inquiry' | 'dashboard' | 'command'
+  const [view, setView] = useState('home');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -69,9 +66,6 @@ const App = () => {
     }, 500);
   };
 
-  // Background color flips between dark (home/dashboard/command) and light (inquiry).
-  const isLightSurface = view === 'inquiry';
-
   return (
     <>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -79,24 +73,12 @@ const App = () => {
       <link rel="stylesheet" href={FONTS_HREF} precedence="default" />
       <style precedence="default">{GLOBAL_CSS}</style>
 
-      <div
-        className={`relative min-h-screen w-full overflow-hidden ${
-          isLightSurface
-            ? 'text-[#111c24] bg-[#f7f8fa]'
-            : 'text-[#f5f1e8] bg-[radial-gradient(ellipse_at_top,#131210_0%,#0a0908_55%,#060504_100%)]'
-        }`}
-      >
-        {!isLightSurface && (
-          <div className="grain pointer-events-none fixed inset-0 opacity-[0.035] mix-blend-overlay" />
-        )}
-
+      <div className="relative min-h-screen w-full overflow-hidden text-[#0a1e3f]
+                      bg-[radial-gradient(ellipse_at_top,#ffffff_0%,#f4f7fc_55%,#e8eef7_100%)]">
         {view === 'home' && (
-          <HomeView
-            logo={logo}
-            mounted={mounted}
-            onLogin={() => switchView('dashboard')}
-            onInquire={() => switchView('inquiry')}
-          />
+          <HomeView logo={logo} mounted={mounted}
+                    onLogin={() => switchView('dashboard')}
+                    onInquire={() => switchView('inquiry')} />
         )}
         {view === 'inquiry' && (
           <InquiryView logo={logo} mounted={mounted} onBack={() => switchView('home')} />

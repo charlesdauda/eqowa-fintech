@@ -15,38 +15,38 @@ const isGenericDomain = (email) => {
 
 const Field = ({ label, error, children }) => (
   <label className="block">
-    <span className="brand-sans block text-[10px] tracking-[0.24em] text-[#a89b7a] mb-2">
+    <span className="brand-sans block text-[10px] tracking-[0.2em] md:tracking-[0.24em] text-[#5a6b85] font-medium mb-2">
       {label}
     </span>
     {children}
     {error && (
-      <span className="brand-sans block mt-1.5 text-[11px] text-[#e57373]">{error}</span>
+      <span className="brand-sans block mt-1.5 text-[11px] text-[#c8302a]">{error}</span>
     )}
   </label>
 );
 
 const inputClass =
-  'brand-sans w-full px-3.5 py-3 text-[13px] text-[#f5f1e8] bg-[#0c0b09]/80 border border-[#2a2620] rounded-sm ' +
-  'placeholder:text-[#5c5850] focus:outline-none focus:border-[#d4af6f]/60 focus:ring-2 focus:ring-[#d4af6f]/15 ' +
+  'brand-sans w-full px-3.5 py-3 text-[13px] text-[#0a1e3f] bg-[#fbfcfe] border border-[#dde3ee] rounded-sm ' +
+  'placeholder:text-[#aab4c5] focus:outline-none focus:border-[#1e4ed8] focus:ring-2 focus:ring-[#1e4ed8]/15 focus:bg-white ' +
   'transition-all duration-300';
 
 const selectClass = inputClass + ' appearance-none cursor-pointer pr-10 ' +
-  'bg-[url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23a89b7a\' stroke-width=\'2\'><polyline points=\'6 9 12 15 18 9\'/></svg>")] ' +
+  'bg-[url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%235a6b85\' stroke-width=\'2\'><polyline points=\'6 9 12 15 18 9\'/></svg>")] ' +
   'bg-no-repeat bg-[right_14px_center]';
 
 const PrimaryButton = ({ children, ...props }) => (
   <button
     {...props}
-    className="group relative overflow-hidden w-full mt-8 px-7 py-4 rounded-sm
-               border border-[#d4af6f]/40
-               bg-linear-to-b from-[#d4af6f]/18 to-[#d4af6f]/4
-               hover:from-[#d4af6f]/30 hover:to-[#d4af6f]/8
+    className="group relative overflow-hidden w-full mt-7 md:mt-8 px-7 py-3.5 md:py-4 rounded-sm
+               bg-linear-to-b from-[#1e4ed8] to-[#1739b8]
+               hover:from-[#3b6fe5] hover:to-[#1e4ed8]
                transition-all duration-500
-               shadow-[inset_0_1px_0_rgba(232,217,184,0.08),0_8px_24px_-12px_rgba(212,175,111,0.25)]"
+               shadow-[0_8px_24px_-8px_rgba(30,78,216,0.40)]
+               hover:shadow-[0_12px_28px_-8px_rgba(30,78,216,0.50)]"
   >
-    <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#e8d9b8]/15 to-transparent
+    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent
                     -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-    <span className="brand-sans relative text-[#f5f1e8] text-[12px] tracking-[0.22em] font-medium">
+    <span className="brand-sans relative text-white text-[11px] md:text-[12px] tracking-[0.2em] md:tracking-[0.22em] font-semibold">
       {children}
     </span>
   </button>
@@ -73,21 +73,21 @@ const CorporateGate = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={submit} className="panel p-8">
-      <div className="flex items-center justify-between mb-2">
-        <h2 className="brand-serif text-[22px] text-[#f5f1e8] tracking-tight">
-          Corporate <span className="italic font-light text-[#d4af6f]">Intake</span>
+    <form onSubmit={submit} className="panel p-6 md:p-8">
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <h2 className="brand-serif text-[20px] md:text-[22px] text-[#0a1e3f] tracking-tight">
+          Corporate <span className="italic font-light text-[#1e4ed8]">Intake</span>
         </h2>
-        <span className="brand-sans text-[9px] tracking-[0.28em] text-[#d4af6f]/80
-                         border border-[#d4af6f]/30 px-2.5 py-1 rounded-sm">
+        <span className="brand-sans shrink-0 text-[9px] tracking-[0.24em] md:tracking-[0.28em] text-[#1e4ed8]
+                         border border-[#1e4ed8]/30 bg-[#1e4ed8]/5 px-2 md:px-2.5 py-1 rounded-sm font-semibold">
           ENTERPRISE
         </span>
       </div>
-      <p className="brand-sans text-[12px] text-[#8a8775] mb-7 leading-relaxed font-light">
+      <p className="brand-sans text-[12px] text-[#5a6b85] mb-6 md:mb-7 leading-relaxed">
         For institutional treasuries and regulated entities.
       </p>
 
-      <div className="space-y-5">
+      <div className="space-y-4 md:space-y-5">
         <Field label="CORPORATE LEGAL ENTITY NAME" error={errors.entity}>
           <input type="text" className={inputClass}
                  placeholder="e.g. Zenith Capital Partners Ltd"
@@ -104,7 +104,7 @@ const CorporateGate = ({ onSubmit }) => {
           <input type="email" className={inputClass}
                  placeholder="treasury@yourcompany.com.gh"
                  value={form.email} onChange={(e) => set('email', e.target.value)} />
-          <span className="brand-sans block mt-1.5 text-[10px] text-[#5c5850] tracking-wide">
+          <span className="brand-sans block mt-1.5 text-[10px] text-[#8a98b0] tracking-wide">
             Generic domains (Gmail, Yahoo, Outlook) are automatically rejected.
           </span>
         </Field>
@@ -147,21 +147,21 @@ const HnwiGate = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={submit} className="panel p-8">
-      <div className="flex items-center justify-between mb-2">
-        <h2 className="brand-serif text-[22px] text-[#f5f1e8] tracking-tight">
-          Private <span className="italic font-light text-[#d4af6f]">Wealth</span>
+    <form onSubmit={submit} className="panel p-6 md:p-8">
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <h2 className="brand-serif text-[20px] md:text-[22px] text-[#0a1e3f] tracking-tight">
+          Private <span className="italic font-light text-[#1e4ed8]">Wealth</span>
         </h2>
-        <span className="brand-sans text-[9px] tracking-[0.28em] text-[#d4af6f]/80
-                         border border-[#d4af6f]/30 px-2.5 py-1 rounded-sm">
+        <span className="brand-sans shrink-0 text-[9px] tracking-[0.24em] md:tracking-[0.28em] text-[#1e4ed8]
+                         border border-[#1e4ed8]/30 bg-[#1e4ed8]/5 px-2 md:px-2.5 py-1 rounded-sm font-semibold">
           HNWI
         </span>
       </div>
-      <p className="brand-sans text-[12px] text-[#8a8775] mb-7 leading-relaxed font-light">
+      <p className="brand-sans text-[12px] text-[#5a6b85] mb-6 md:mb-7 leading-relaxed">
         For private wealth clients and high-net-worth individuals.
       </p>
 
-      <div className="space-y-5">
+      <div className="space-y-4 md:space-y-5">
         <Field label="FULL LEGAL NAME" error={errors.name}>
           <input type="text" className={inputClass}
                  placeholder="As shown on government-issued ID"
@@ -200,17 +200,17 @@ const HnwiGate = ({ onSubmit }) => {
         <label className="flex items-start gap-3 cursor-pointer mt-3 group">
           <input
             type="checkbox"
-            className="mt-0.5 h-4 w-4 rounded-sm border-[#3a3833] bg-[#0c0b09] accent-[#d4af6f]"
+            className="mt-0.5 h-4 w-4 shrink-0 rounded-sm border-[#dde3ee] bg-white accent-[#1e4ed8]"
             checked={form.attested}
             onChange={(e) => set('attested', e.target.checked)}
           />
-          <span className="brand-sans text-[12px] text-[#bfb59c] leading-relaxed group-hover:text-[#f5f1e8] transition-colors">
+          <span className="brand-sans text-[12px] text-[#2c3e5c] leading-relaxed group-hover:text-[#0a1e3f] transition-colors">
             I attest that I qualify as a high-net-worth individual under the relevant
             jurisdictional definition and accept the sandbox terms of access.
           </span>
         </label>
         {errors.attested && (
-          <span className="brand-sans block text-[11px] text-[#e57373]">{errors.attested}</span>
+          <span className="brand-sans block text-[11px] text-[#c8302a]">{errors.attested}</span>
         )}
       </div>
 
@@ -221,68 +221,66 @@ const HnwiGate = ({ onSubmit }) => {
 
 const FormContent = ({ logo, onBack, onSubmit }) => (
   <>
-    {/* Top bar */}
-    <div className="relative z-10 flex items-center justify-between px-6 md:px-14 pt-8">
-      <div className="flex items-center gap-3">
-        <Logo src={logo} size={28} glow={false} />
-        <span className="brand-sans text-[#f5f1e8] text-[12px] tracking-[0.3em] font-semibold">
+    <div className="relative z-10 flex items-center justify-between gap-3 px-5 md:px-14 pt-6 md:pt-8">
+      <div className="flex items-center gap-2 md:gap-3 min-w-0">
+        <Logo src={logo} size={24} glow={false} />
+        <span className="brand-sans text-[#0a1e3f] text-[11px] md:text-[12px] tracking-[0.22em] md:tracking-[0.3em] font-semibold truncate">
           EQOWA FINTECH
         </span>
-        <span className="text-[#3a3833]">│</span>
-        <span className="brand-serif italic text-[#bfb59c] text-[13px]">
+        <span className="hidden md:inline text-[#cbd5e1]">│</span>
+        <span className="hidden md:inline brand-serif italic text-[#5a6b85] text-[13px]">
           Sandbox Application Portal
         </span>
       </div>
       <button
         onClick={onBack}
-        className="brand-sans text-[10px] tracking-[0.28em] text-[#8a8775]
-                   hover:text-[#d4af6f] transition-colors duration-300"
+        className="brand-sans shrink-0 text-[10px] tracking-[0.22em] md:tracking-[0.28em] text-[#5a6b85]
+                   hover:text-[#1e4ed8] transition-colors duration-300"
       >
         ← BACK
       </button>
     </div>
 
-    {/* Hero */}
-    <div className="relative z-10 max-w-6xl mx-auto w-full px-6 pt-20 pb-12 text-center">
-      <div className="reveal [animation-delay:80ms] brand-sans text-[10px] tracking-[0.4em] text-[#d4af6f]">
+    <div className="relative z-10 max-w-6xl mx-auto w-full px-5 md:px-6 pt-12 md:pt-20 pb-8 md:pb-12 text-center">
+      <div className="reveal [animation-delay:80ms] brand-sans text-[10px] tracking-[0.28em] md:tracking-[0.4em] text-[#1e4ed8] font-semibold">
         PHASE 0 · INSTITUTIONAL INTAKE
       </div>
 
-      <h1 className="reveal [animation-delay:220ms] brand-serif mt-5
-                     text-[#f5f1e8] text-5xl md:text-6xl tracking-tight">
-        Apply for <span className="italic font-light text-[#d4af6f]">Network Access</span>
+      <h1 className="reveal [animation-delay:220ms] brand-serif mt-4 md:mt-5
+                     text-[#0a1e3f] text-4xl sm:text-5xl md:text-6xl tracking-tight">
+        Apply for <span className="italic font-light text-[#1e4ed8]">Network Access</span>
       </h1>
 
-      <div className="reveal [animation-delay:340ms] mt-5 mx-auto h-px w-24
-                      bg-linear-to-r from-transparent via-[#d4af6f]/60 to-transparent" />
+      <div className="reveal [animation-delay:340ms] mt-4 md:mt-5 mx-auto h-px w-20 md:w-24
+                      bg-linear-to-r from-transparent via-[#1e4ed8]/60 to-transparent" />
 
-      <p className="reveal [animation-delay:440ms] brand-sans mt-7
-                    text-[#bfb59c] max-w-xl mx-auto leading-relaxed
-                    text-[15px] font-light">
+      <p className="reveal [animation-delay:440ms] brand-sans mt-5 md:mt-7
+                    text-[#2c3e5c] max-w-xl mx-auto leading-relaxed
+                    text-[14px] md:text-[15px]">
         Submit your access dossier. Applications are reviewed for SEC Ghana
         Regulatory Sandbox eligibility.
         <br />
-        <span className="text-[#8a8775] text-[13px] tracking-wide">
+        <span className="text-[#5a6b85] text-[12px] md:text-[13px] tracking-wide">
           A Phase 1 access token will follow via secure email upon initial vetting.
         </span>
       </p>
     </div>
 
-    <div className="relative z-10 max-w-6xl mx-auto w-full px-6 pb-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="relative z-10 max-w-6xl mx-auto w-full px-5 md:px-6 pb-12 md:pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         <div className="reveal [animation-delay:580ms]"><CorporateGate onSubmit={onSubmit} /></div>
         <div className="reveal [animation-delay:720ms]"><HnwiGate onSubmit={onSubmit} /></div>
       </div>
     </div>
 
-    <div className="reveal [animation-delay:880ms] relative z-10 border-t border-[#252320]
-                    mx-6 md:mx-14 mb-6 pt-5 pb-3 mt-auto">
-      <div className="brand-sans flex flex-col md:flex-row items-center justify-between gap-4
-                      text-[10px] tracking-[0.22em] text-[#8a8775]">
+    <div className="reveal [animation-delay:880ms] relative z-10 border-t border-[#dde3ee]
+                    mx-5 md:mx-14 mb-6 pt-5 pb-3 mt-auto">
+      <div className="brand-sans flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4
+                      text-[9px] md:text-[10px] tracking-[0.18em] md:tracking-[0.22em] text-[#5a6b85] text-center">
         <span>EQOWA FINTECH LTD · ACCRA · REPUBLIC OF GHANA</span>
-        <span className="text-[#a89b7a]">SEC/SB/047 · ACT 756 COMPLIANT</span>
+        <span className="text-[#2c3e5c]">SEC/SB/047 · ACT 756 COMPLIANT</span>
         <span className="flex items-center gap-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#6fa572] animate-pulse" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#16a34a] animate-pulse" />
           SECURE INTAKE CHANNEL
         </span>
       </div>
@@ -291,59 +289,57 @@ const FormContent = ({ logo, onBack, onSubmit }) => (
 );
 
 const TokenSentContent = ({ submission, onBack }) => (
-  <div className="relative z-10 w-full min-h-screen flex items-center justify-center px-6 py-16">
-    <div className="max-w-lg w-full panel p-10 text-center">
-      <div className="reveal mx-auto h-16 w-16 rounded-full bg-[#6fa572]/15 flex items-center justify-center
-                      ring-4 ring-[#6fa572]/20 text-[#6fa572]">
-        <CheckIcon className="w-6 h-6" />
+  <div className="relative z-10 w-full min-h-screen flex items-center justify-center px-5 md:px-6 py-10 md:py-16">
+    <div className="max-w-lg w-full panel p-6 md:p-10 text-center">
+      <div className="reveal mx-auto h-14 w-14 md:h-16 md:w-16 rounded-full bg-[#16a34a]/12 flex items-center justify-center
+                      ring-4 ring-[#16a34a]/15 text-[#16a34a]">
+        <CheckIcon className="w-5 h-5 md:w-6 md:h-6" />
       </div>
 
-      <h2 className="reveal [animation-delay:120ms] brand-serif mt-7 text-3xl text-[#f5f1e8] tracking-tight">
-        Application <span className="italic font-light text-[#d4af6f]">Received</span>
+      <h2 className="reveal [animation-delay:120ms] brand-serif mt-6 md:mt-7 text-[26px] md:text-3xl text-[#0a1e3f] tracking-tight">
+        Application <span className="italic font-light text-[#1e4ed8]">Received</span>
       </h2>
 
       <div className="reveal [animation-delay:200ms] mt-3 mx-auto h-px w-16
-                      bg-linear-to-r from-transparent via-[#d4af6f]/60 to-transparent" />
+                      bg-linear-to-r from-transparent via-[#1e4ed8]/60 to-transparent" />
 
-      <p className="reveal [animation-delay:280ms] brand-sans mt-5 text-[13px] text-[#bfb59c]
-                    leading-relaxed font-light">
+      <p className="reveal [animation-delay:280ms] brand-sans mt-4 md:mt-5 text-[12px] md:text-[13px] text-[#2c3e5c]
+                    leading-relaxed">
         Your {submission.type === 'corporate' ? 'corporate dossier' : 'private wealth inquiry'} has
         been provisioned for Phase 1 digital profiling.
       </p>
 
-      <div className="reveal [animation-delay:400ms] mt-8 rounded-sm border border-[#d4af6f]/20
-                      bg-linear-to-b from-[#d4af6f]/5 to-transparent p-5 text-left
-                      shadow-[inset_0_1px_0_rgba(232,217,184,0.06)]">
-        <div className="brand-sans text-[10px] tracking-[0.3em] text-[#8a8775]">
+      <div className="reveal [animation-delay:400ms] mt-6 md:mt-8 rounded-sm border border-[#1e4ed8]/20
+                      bg-linear-to-b from-[#1e4ed8]/4 to-transparent p-4 md:p-5 text-left">
+        <div className="brand-sans text-[10px] tracking-[0.24em] md:tracking-[0.3em] text-[#5a6b85] font-semibold">
           PHASE 1 ACCESS TOKEN
         </div>
-        <div className="brand-mono mt-2 text-[15px] text-[#d4af6f] tracking-widest">
+        <div className="brand-mono mt-2 text-[13px] md:text-[15px] text-[#1e4ed8] tracking-widest break-all font-medium">
           EQ-ONBD-2026-9482-X
         </div>
-        <div className="mt-4 h-px bg-[#252320]" />
-        <div className="brand-sans mt-3 text-[11px] text-[#8a8775] flex items-center justify-between">
-          <span>SENT TO</span>
-          <span className="text-[#bfb59c] brand-mono">{submission.email}</span>
+        <div className="mt-4 h-px bg-[#e2e8f0]" />
+        <div className="brand-sans mt-3 text-[11px] text-[#5a6b85] flex items-center justify-between gap-3">
+          <span className="shrink-0">SENT TO</span>
+          <span className="text-[#2c3e5c] brand-mono text-right truncate">{submission.email}</span>
         </div>
-        <div className="brand-sans mt-1.5 text-[11px] text-[#8a8775] flex items-center justify-between">
+        <div className="brand-sans mt-1.5 text-[11px] text-[#5a6b85] flex items-center justify-between">
           <span>VALID FOR</span>
-          <span className="text-[#bfb59c]">72 hours</span>
+          <span className="text-[#2c3e5c]">72 hours</span>
         </div>
       </div>
 
-      <p className="reveal [animation-delay:520ms] brand-sans mt-7 text-[11px] text-[#8a8775]
-                    leading-relaxed font-light">
+      <p className="reveal [animation-delay:520ms] brand-sans mt-6 md:mt-7 text-[11px] text-[#5a6b85]
+                    leading-relaxed">
         Your request has been written to the middleware queue with status
-        <span className="brand-mono text-[#d4af6f]"> UNVETTED</span>. Once administrative
+        <span className="brand-mono text-[#1e4ed8] font-medium"> UNVETTED</span>. Once administrative
         vetting clears, a profiling gateway link will follow via secure email.
       </p>
 
       <button
         onClick={onBack}
-        className="reveal [animation-delay:640ms] brand-sans mt-8 w-full py-3.5 rounded-sm
-                   border border-[#3a3833] hover:border-[#d4af6f]/40
-                   hover:bg-[#1a1815]/40
-                   text-[#bfb59c] hover:text-[#f5f1e8] text-[12px] tracking-[0.22em] font-medium
+        className="reveal [animation-delay:640ms] brand-sans mt-7 md:mt-8 w-full py-3 md:py-3.5 rounded-sm
+                   border border-[#dde3ee] bg-white hover:border-[#1e4ed8]/40 hover:bg-[#f4f7fc]
+                   text-[#0a1e3f] text-[11px] md:text-[12px] tracking-[0.2em] md:tracking-[0.22em] font-medium
                    transition-all duration-500"
       >
         ← BACK TO LANDING
@@ -356,15 +352,16 @@ const InquiryView = ({ logo, onBack, mounted }) => {
   const [submission, setSubmission] = useState(null);
 
   return (
-    <div className={`relative w-full min-h-screen flex flex-col transition-all duration-700
+    <div className={`relative w-full min-h-screen flex flex-col overflow-x-hidden transition-all duration-700
                      ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
 
+      {/* Soft white backdrop with subtle blue glow pools */}
       <div className="absolute inset-0 -z-10
-                      bg-[radial-gradient(ellipse_at_top,#131210_0%,#0a0908_55%,#060504_100%)]" />
+                      bg-[radial-gradient(ellipse_at_top,#ffffff_0%,#f4f7fc_55%,#e8eef7_100%)]" />
       <div className="absolute inset-x-0 top-[55%] h-175 -z-10 pointer-events-none
-                      bg-[radial-gradient(ellipse_at_center,rgba(212,175,111,0.05)_0%,transparent_60%)]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-75 -z-10 pointer-events-none
-                      bg-[radial-gradient(ellipse_at_top,rgba(212,175,111,0.07)_0%,transparent_70%)]" />
+                      bg-[radial-gradient(ellipse_at_center,rgba(30,78,216,0.04)_0%,transparent_60%)]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 max-w-full h-75 -z-10 pointer-events-none
+                      bg-[radial-gradient(ellipse_at_top,rgba(30,78,216,0.06)_0%,transparent_70%)]" />
 
       <CircuitField />
 

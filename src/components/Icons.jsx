@@ -1,5 +1,4 @@
 const baseStroke = {
-  //stroke
   fill: 'none',
   stroke: 'currentColor',
   strokeLinecap: 'round',
@@ -38,11 +37,11 @@ export const HardwareIcon = ({ className = '' }) => (
 
 export const SealIcon = ({ className = '' }) => (
   <svg className={className} width="40" height="40" viewBox="0 0 48 48" fill="none">
-    <circle cx="24" cy="24" r="20" fill="#3d5a3d" stroke="#d4af6f" strokeWidth="1" />
-    <circle cx="24" cy="24" r="14" fill="none" stroke="#d4af6f" strokeWidth="0.5" strokeDasharray="1 2" />
+    <circle cx="24" cy="24" r="20" fill="#1e2b4a" stroke="#1e4ed8" strokeWidth="1" />
+    <circle cx="24" cy="24" r="14" fill="none" stroke="#1e4ed8" strokeWidth="0.5" strokeDasharray="1 2" />
     <path d="M24 14 L28 22 L36 22 L30 27 L32 35 L24 30 L16 35 L18 27 L12 22 L20 22 Z"
-          fill="#d4af6f" opacity="0.85" />
-    <text x="24" y="44" textAnchor="middle" fontSize="3" fill="#d4af6f"
+          fill="#1e4ed8" opacity="0.9" />
+    <text x="24" y="44" textAnchor="middle" fontSize="3" fill="#1e4ed8"
           fontFamily="serif" letterSpacing="0.5">
       REPUBLIC · GH
     </text>

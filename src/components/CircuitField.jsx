@@ -5,7 +5,6 @@ const NODES = [
   [8, 38], [22, 48], [38, 42], [54, 52], [70, 44], [86, 56], [96, 42],
   [14, 68], [30, 78], [48, 72], [64, 82], [80, 74], [94, 86],
   [6, 92], [24, 96], [42, 88], [58, 96], [76, 92], [88, 96],
-  //nodes
 ];
 
 const EDGES = [
@@ -19,7 +18,6 @@ const EDGES = [
 ];
 
 const CircuitField = () => {
-
   const id = useId();
   const vignetteId = `vignette-${id}`;
 
@@ -32,14 +30,14 @@ const CircuitField = () => {
     >
       <defs>
         <radialGradient id={vignetteId} cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="rgba(212,175,111,0.04)" />
-          <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+          <stop offset="0%" stopColor="rgba(30,78,216,0.05)" />
+          <stop offset="100%" stopColor="rgba(255,255,255,0)" />
         </radialGradient>
       </defs>
 
       <rect x="0" y="0" width="100" height="100" fill={`url(#${vignetteId})`} />
 
-      <g stroke="rgba(212,175,111,0.14)" strokeWidth="0.08" fill="none">
+      <g stroke="rgba(30,78,216,0.09)" strokeWidth="0.08" fill="none">
         {EDGES.map(([a, b], i) => (
           <line key={i} x1={NODES[a][0]} y1={NODES[a][1]} x2={NODES[b][0]} y2={NODES[b][1]}>
             <animate
@@ -53,12 +51,12 @@ const CircuitField = () => {
         ))}
       </g>
 
-      <g fill="rgba(232,217,184,0.5)">
+      <g fill="rgba(10,30,63,0.30)">
         {NODES.map(([x, y], i) => (
           <circle key={i} cx={x} cy={y} r="0.18">
             <animate
               attributeName="opacity"
-              values="0.2;0.9;0.2"
+              values="0.2;0.7;0.2"
               dur={`${3 + (i % 4)}s`}
               repeatCount="indefinite"
               begin={`${(i * 0.2) % 2}s`}
